@@ -1,26 +1,25 @@
-package com.kat.todolist.hello;
+package com.kat.todolist.hello.Implementation;
 
 
-import com.kat.todolist.lang.Lang;
-import com.kat.todolist.lang.LangRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import com.kat.todolist.hello.service.HelloService;
+import com.kat.todolist.lang.entity.Lang;
+import com.kat.todolist.lang.repository.LangRepository;
 
 import java.util.Optional;
+import org.springframework.stereotype.Service;
 
 @Service
-public class HelloService {
+public class HelloServiceImpl implements HelloService {
     static final String FALLBACK_NAME = "world";
     static final Lang FALLBACK_LANG = new Lang(1, "Hello", "EN");
-    private final Logger logger = LoggerFactory.getLogger(HelloService.class);
 
     private LangRepository langRepository;
 
-    public HelloService(LangRepository langRepository) {
+    public HelloServiceImpl(LangRepository langRepository) {
         this.langRepository = langRepository;
     }
 
+    @Override
     public String prepareGreeting(String name, Integer lang){
         Integer langId = Optional.ofNullable(lang).orElse(FALLBACK_LANG.getId());
         var welcomeMsg = langRepository.findById(langId).orElse(FALLBACK_LANG).getWelcomeMsg();

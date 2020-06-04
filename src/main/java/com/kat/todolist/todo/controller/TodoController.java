@@ -1,25 +1,23 @@
-package com.kat.todolist.todo;
+package com.kat.todolist.todo.controller;
+import com.kat.todolist.todo.entity.Todo;
+import com.kat.todolist.todo.repository.TodoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
-import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/todos")
-public class TodoServlet {
+public class TodoController {
 
-    private final Logger logger = LoggerFactory.getLogger(TodoServlet.class);
+    private final Logger logger = LoggerFactory.getLogger(TodoController.class);
 
     private TodoRepository todoRepository;
 
-    TodoServlet(TodoRepository todoRepository) {
+    TodoController(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
 

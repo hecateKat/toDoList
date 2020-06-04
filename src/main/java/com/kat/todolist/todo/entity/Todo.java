@@ -1,4 +1,4 @@
-package com.kat.todolist.todo;
+package com.kat.todolist.todo.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

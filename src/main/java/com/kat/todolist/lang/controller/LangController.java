@@ -1,5 +1,7 @@
-package com.kat.todolist.lang;
+package com.kat.todolist.lang.controller;
 
+import com.kat.todolist.lang.dto.LangDTO;
+import com.kat.todolist.lang.implementation.LangServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -10,20 +12,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class LangServlet {
+public class LangController {
 
-    private final Logger logger = LoggerFactory.getLogger(LangServlet.class);
+    private final Logger logger = LoggerFactory.getLogger(LangController.class);
 
-    private LangService langService;
+    private LangServiceImpl langServiceImpl;
 
 
-    public LangServlet(LangService langService) {
-        this.langService = langService;
+    public LangController(LangServiceImpl langServiceImpl) {
+        this.langServiceImpl = langServiceImpl;
     }
 
     @GetMapping("/langs")
     public ResponseEntity<List<LangDTO>> findAll(){
         logger.info("Got request");
-        return ResponseEntity.ok(langService.findAll());
+        return ResponseEntity.ok(langServiceImpl.findAll());
     }
 }

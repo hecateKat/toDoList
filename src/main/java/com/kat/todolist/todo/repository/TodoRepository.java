@@ -1,5 +1,6 @@
-package com.kat.todolist.todo;
+package com.kat.todolist.todo.repository;
 
+import com.kat.todolist.todo.entity.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

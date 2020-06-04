@@ -1,10 +1,12 @@
-package com.kat.todolist.lang;
+package com.kat.todolist.lang.dto;
+
+import com.kat.todolist.lang.entity.Lang;
 
 public class LangDTO {
     private Integer id;
     private String code;
 
-    LangDTO(Lang lang) {
+    public LangDTO(Lang lang) {
         this.id = lang.getId();
         this.code = lang.getCode();
     }
